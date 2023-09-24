@@ -7,3 +7,4 @@ dependencies:
   - nodejs=18.12.1
   - make=4.3
   - cmake=3.25.2
+  - toml=0.10.2
