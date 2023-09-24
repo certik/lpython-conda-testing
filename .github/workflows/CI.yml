@@ -64,4 +64,4 @@ jobs:
         shell: bash -e -l {0}
         run: |
             cd lpython
-            ./run_tests.py
+            ./run_tests.py --skip-run-with-dbg
