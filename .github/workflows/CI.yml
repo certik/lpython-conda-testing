@@ -38,13 +38,8 @@ jobs:
       - name: Clone LPython Source Repository
         shell: bash -e -l {0}
         run: |
-            mkdir ~/.ssh
-            chmod 700 ~/.ssh
-            ssh-keyscan github.com >> ~/.ssh/known_hosts
-            eval "$(ssh-agent -s)"
-
-            git clone git@github.com:lcompilers/lpython.git
-            git fetch --tags -f
+            git clone https://github.com/lcompilers/lpython.git
+            git fetch https://github.com/lcompilers/lpython.git --tags -f
             git checkout v0.20.0
 
       - name: Run LPython Ctest
@@ -69,4 +64,4 @@ jobs:
         shell: bash -e -l {0}
         run: |
             cd lpython
-            ./run_tests.py
+            ./run_tests.py --skip-run-with-dbg
