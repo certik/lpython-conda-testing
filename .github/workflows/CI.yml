@@ -36,7 +36,7 @@ jobs:
           key: ${{ github.job }}-${{ matrix.os }}
 
       - name: Print installed packages information
-        shell: bash -e -l {0}
+        shell: bash -e -x -l {0}
         run: |
             which lpython
             micromamba env list
@@ -44,7 +44,7 @@ jobs:
             which lpython
 
       - name: Clone LPython Source Repository
-        shell: bash -e -l {0}
+        shell: bash -e -x -l {0}
         run: |
             git clone https://github.com/lcompilers/lpython.git
             git fetch https://github.com/lcompilers/lpython.git --tags -f
@@ -52,21 +52,21 @@ jobs:
 
       - name: Run LPython Integration Tests
         if: ${{ !startsWith(matrix.os, 'windows-2019') }}
-        shell: bash -e -l {0}
+        shell: bash -e -x -l {0}
         run: |
             cd lpython/integration_tests
             ./run_tests.py -b llvm c wasm
 
       - name: Run LPython Fast Integration Tests
         if: ${{ !startsWith(matrix.os, 'windows-2019') }}
-        shell: bash -e -l {0}
+        shell: bash -e -x -l {0}
         run: |
             cd lpython/integration_tests
             ./run_tests.py -b llvm c wasm -f
 
       - name: Run LPython Reference Tests
         if: ${{ !startsWith(matrix.os, 'windows-2019') }}
-        shell: bash -e -l {0}
+        shell: bash -e -x -l {0}
         run: |
             cd lpython
             ./run_tests.py --skip-run-with-dbg
