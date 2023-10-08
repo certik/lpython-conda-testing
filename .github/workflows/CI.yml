@@ -35,6 +35,14 @@ jobs:
           variant: sccache
           key: ${{ github.job }}-${{ matrix.os }}
 
+      - name: Print installed packages information
+        shell: bash -e -l {0}
+        run: |
+            which lpython
+            micromamba env list
+            micromamba activate lp
+            which lpython
+
       - name: Clone LPython Source Repository
         shell: bash -e -l {0}
         run: |
