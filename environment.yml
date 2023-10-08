@@ -1,4 +1,4 @@
-name: lf
+name: lp
 channels:
   - conda-forge
 dependencies:
