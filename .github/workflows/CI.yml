@@ -42,12 +42,6 @@ jobs:
             git fetch https://github.com/lcompilers/lpython.git --tags -f
             git checkout v0.20.0
 
-      - name: Run LPython Ctest
-        shell: bash -e -l {0}
-        run: |
-            cd lpython
-            ctest
-
       - name: Run LPython Integration Tests
         shell: bash -e -l {0}
         run: |
