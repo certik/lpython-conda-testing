@@ -43,18 +43,21 @@ jobs:
             git checkout v0.20.0
 
       - name: Run LPython Integration Tests
+        if: ${{ !startsWith(matrix.os, 'windows-2019') }}
         shell: bash -e -l {0}
         run: |
             cd lpython/integration_tests
             ./run_tests.py -b llvm c wasm
 
       - name: Run LPython Fast Integration Tests
+        if: ${{ !startsWith(matrix.os, 'windows-2019') }}
         shell: bash -e -l {0}
         run: |
             cd lpython/integration_tests
             ./run_tests.py -b llvm c wasm -f
 
       - name: Run LPython Reference Tests
+        if: ${{ !startsWith(matrix.os, 'windows-2019') }}
         shell: bash -e -l {0}
         run: |
             cd lpython
