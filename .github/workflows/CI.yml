@@ -47,6 +47,7 @@ jobs:
         shell: bash -e -x -l {0}
         run: |
             git clone https://github.com/lcompilers/lpython.git
+            cd lpython
             git fetch https://github.com/lcompilers/lpython.git --tags -f
             git checkout v0.20.0
 
